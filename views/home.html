@@ -1,0 +1,17 @@
+<!-- home.html -->
+<div class="jumbotron text-center">
+    <h1>Home page</h1>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12" ng-repeat="article in data.ListOfArticles">
+            <div class="thumbnail">
+                <img ng-src="{{article.image}}" alt="{{article.title}}">
+                <div class="caption">
+                    <h4 class="text-center">{{article.title}}</h4>
+                    <p>{{article.body}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
