@@ -6,7 +6,7 @@ testApp.config(function($routeProvider) {
             templateUrl : 'views/home.html',
             controller  : 'mainCtrl'
         })
-        .when('/article/:categiry_id', {
+        .when('/article/:category_id', {
             templateUrl : 'views/article.html',
             controller  : 'articleCtrl'
         })
@@ -22,18 +22,18 @@ testApp.controller('mainCtrl', function($scope, $http) {
 });
 
 testApp.controller('articleCtrl', function($scope, $http, $routeParams) {
-    $scope.categiry_id = $routeParams.categiry_id;
+    $scope.category_id = $routeParams.category_id;
     $scope.results = [];
     $scope.category_name;
 
     angular.forEach($scope.data.ListOfArticles, function(value) {
-        if ($scope.categiry_id == value.categoryId){
+        if ($scope.category_id == value.categoryId){
             this.push(value);
         }
     }, $scope.results);
 
     angular.forEach($scope.data.ListOfCategories, function(value){
-        if (value.id == $scope.categiry_id){
+        if (value.id == $scope.category_id){
             $scope.category_name = value.name;
         }
     });
